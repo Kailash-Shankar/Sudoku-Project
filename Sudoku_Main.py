@@ -1,5 +1,3 @@
-from tabnanny import check
-
 import pygame
 import sys, time
 from Sudoku_Cell_and_Board import *
