@@ -176,7 +176,7 @@ def main():
 
     #Board Generation
     def Generate_Board():
-        global SG, New_board, Greyed_board, Answer_key
+        global SG, New_board, Greyed_board, Answer_key, Reset_board
         SG = SudokuGenerator(9, Remov_num)
         SG.fill_values()
         SG.print_board()
@@ -185,6 +185,7 @@ def main():
         Answer_key = copy.deepcopy(New_board)
         SG.remove_cells()
         Greyed_board = copy.deepcopy(SG.get_board())
+        Reset_board = copy.deepcopy(SG.get_board())
         fill_board(SG.get_board())
 
     Generate_Board()
@@ -216,7 +217,7 @@ def main():
                     screen.fill(BG_Color)
                     draw_lines()
                     reset_x, reset_y, restart_x, restart_y, quit_x, quit_y = draw_commands()
-                    Generate_Board()
+                    fill_board(Reset_board)
 
                 elif restart_x - 75 < x < restart_x + 75 and restart_y - 30 < y < restart_y + 30:
                     main()
